@@ -3,6 +3,27 @@ import { StyleSheet, Text, ScrollView, View } from 'react-native';
 import FeaturedFilm from './components/FeaturedFilm';
 import Films from './components/Films';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 50,
+    paddingBottom: 80,
+  },
+  titleText: {
+    fontSize: 20,
+    color: 'purple',
+    fontWeight: 'bold',
+  },
+  text: {
+    fontSize: 20,
+    color: 'teal',
+    textDecorationLine: 'underline',
+  },
+});
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -52,40 +73,17 @@ export default class App extends React.Component {
               item={this.state.featuredFilm}
             />
           ) : (
-            <Text style={{fontSize: 18}}>
+            <Text style={{ fontSize: 18 }}>
               Click a list item to see more...
             </Text>
           )}
-        <View style={styles.container}>
-          <Text style={styles.text}>From Studio Ghibli</Text>
-          <Films
-            handleClick={this.handleClick}
-            items={this.state.films}
-          />
-        </View>
+          <View style={styles.container}>
+            <Text style={styles.text}>From Studio Ghibli</Text>
+            <Films handleClick={this.handleClick} items={this.state.films} />
+          </View>
         </View>
       </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: 50,
-    paddingBottom: 80
-  },
-  titleText: {
-    fontSize: 20,
-    color: 'purple',
-    fontWeight: 'bold',
-  },
-  text: {
-    fontSize: 20,
-    color: 'teal',
-    textDecorationLine: 'underline'
-  },
-});
